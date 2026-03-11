@@ -1,0 +1,31 @@
+import random
+print("Olá seja bem-vindo(a)!")
+jogar = input("Deseja jogar? (S/N) ").strip().upper()
+
+if jogar != "S":
+    print("Tudo bem, talvez uma próxima hora!")
+    quit()
+    
+numero = random.randint(1,50)
+tentativas = 0
+
+print("Adivinhe o número que eu estou pensando entre 1 a 50!")
+palpite = int(input("Digite sua resposta: "))
+tentativas +=1
+
+while palpite != numero:
+    if palpite > numero:
+        print("Muito alto, tente novamente!")
+        
+    elif palpite < numero:
+        print("Muito baixo, tente novamente!")
+        
+    palpite = int(input("Digite sua resposta novamente: "))
+    tentativas +=1
+
+if tentativas <= 3:
+    print("Caramba! Você achou muito rápido! O número era", numero, "e você acertou em", tentativas, "tentativas!")
+elif tentativas <= 6:
+    print("Parabéns! O número era", numero, "e você acertou em", tentativas, "tentativas!")
+else:
+    print("Puxa... O número era", numero, "e você acertou em", tentativas, "tentativas!")
